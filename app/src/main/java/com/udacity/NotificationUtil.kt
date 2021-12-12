@@ -12,10 +12,14 @@ private const val NOTIFICATION_ID = 0
 making an extension function on NotificationManager
  */
 
-fun NotificationManager.sendNotification(msg :String,appContext: Context,channelId :String){
+fun NotificationManager.sendNotification(msg :String,appContext: Context,channelId :String,fileName: String,status:String){
 
     val contentIntent = Intent(appContext,DetailActivity::class.java).apply {
         putExtra(appContext.getString(R.string.INTENT_EXTRA_NOTIFICATION_ID), NOTIFICATION_ID)
+        putExtra(appContext.getString(R.string.INTENT_FILENAME_ID),fileName)
+        putExtra(appContext.getString(R.string.INTENT_STATUS_ID),status)
+
+
     }
     val pendingIntent = PendingIntent.getActivity(
                                 appContext,

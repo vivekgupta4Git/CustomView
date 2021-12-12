@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000"
+        motion:autoTransition="animateToEnd">
+       <KeyFrameSet>
+       </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/okButton"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toBottomOf="@+id/statusText"
+            motion:layout_constraintHorizontal_bias="0.498"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="168dp"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:alpha="0" />
+        <Constraint
+            android:id="@+id/fileName"
+            motion:layout_constraintStart_toEndOf="@+id/fileNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="@+id/fileNameTextView"
+            android:layout_marginStart="64dp"
+            motion:layout_constraintTop_toTopOf="@+id/fileNameTextView"
+            android:translationY="-50dp" />
+        <Constraint
+            android:id="@+id/statusText"
+            motion:layout_constraintEnd_toEndOf="@+id/fileName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="@+id/statusTextView"
+            motion:layout_constraintTop_toTopOf="@+id/statusTextView"
+            motion:layout_constraintStart_toStartOf="@+id/fileName"
+            android:rotation="-360" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/fileName"
+            motion:layout_constraintStart_toEndOf="@+id/fileNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="@+id/fileNameTextView"
+            android:layout_marginStart="64dp"
+            motion:layout_constraintTop_toTopOf="@+id/fileNameTextView" />
+    </ConstraintSet>
+</MotionScene>

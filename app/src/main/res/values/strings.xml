@@ -16,6 +16,8 @@
 
     <string name="myChannelName">Download Notification</string>
     <string name="INTENT_EXTRA_NOTIFICATION_ID">com.udacity.notificationId</string>
+    <string name="INTENT_FILENAME_ID">fileName</string>
+    <string name="INTENT_STATUS_ID">Status</string>
     <string name="glideUrl">GLIDE URL</string>
     <string name="load_app_url">LOAD APP URL</string>
     <string name="retrofit_url">RETROFIT URL</string>

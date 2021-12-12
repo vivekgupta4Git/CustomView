@@ -92,10 +92,11 @@ class LoadingButton @JvmOverloads constructor(
 
 
 
-        private var buttonState: ButtonState by Delegates.observable(ButtonState.Completed) { p, old, new ->
+        private var buttonState: ButtonState by Delegates.observable(ButtonState.Completed) { _, old, new ->
 
         when(new){
             ButtonState.Loading -> {
+                isClickable = false
                 buttonText = resources.getString(R.string.button_loading)
                 valueAnimator.start()
                 valueAnimator.addUpdateListener { animation ->
@@ -106,12 +107,14 @@ class LoadingButton @JvmOverloads constructor(
                 }
             }
             ButtonState.Completed-> {
+                isClickable = true
                 buttonText = resources.getString(R.string.button_complete)
                 valueAnimator.end()
 
 
             }
             ButtonState.Clicked-> {
+                isClickable = true
                 buttonText = resources.getString(R.string.button_name)
                 valueAnimator.end()
             }
@@ -139,15 +142,6 @@ class LoadingButton @JvmOverloads constructor(
         rect.bottom  = heightSize.toFloat()
 
         topRect = rect
-
-       /* if(buttonState ==ButtonState.Loading)
-        {
-            progressBarPaint.alpha = 1
-        }else
-        {
-            progressBarPaint.alpha = 0
-        }
-*/
         //set the custom color
         backgroundPaint.setColor(customColor)
         paintText.setColor(customTextColor)
@@ -155,9 +149,6 @@ class LoadingButton @JvmOverloads constructor(
         canvas?.drawRect(rect,backgroundPaint)
 
         canvas?.drawText(buttonText, (widthSize/2).toFloat(), (heightSize/2).toFloat(),paintText)
-
-
-
 
         ovalRect.top = 0f + paintText.descent()
         ovalRect.left =  rect.right - 100f
